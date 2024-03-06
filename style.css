@@ -1,81 +1,47 @@
-/* Scrollbar Styles */
-::-webkit-scrollbar {
-  width: 5px;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #6366f1;
+h1 {
+    margin: 0;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #4338ca;
+#map {
+    width: 80%;
+    height: 400px;
+    margin: 20px auto;
+    background-color: #fff;
 }
 
-/* General Styles */
-.autoComplete_wrapper {
-  width: 100%;
+#driver-list {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 10px;
 }
 
-#disclaimer {
-  max-width: 24rem;
+h2 {
+    text-align: center;
 }
 
-.content-container div {
-  min-width: 400px;
+ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-/* Responsive Styles */
-@media (max-width: 425px) {
-  body {
-    background-color: white !important;
-  }
-
-  .content-container div {
-    min-width: 100%;
-  }
-
-  .content-container {
-    box-shadow: none;
-  }
-}
-
-/* Input Styles */
-#autocomplete-input {
-  overflow-x: hidden;
-  width: 100%;
-  border: 1px solid #4338ca;
-  background-color: white;
-  border-radius: 50px;
-  height: 48px;
-  color: black;
-}
-
-#autocomplete-input::placeholder {
-  color: #9ca3af;
-}
-
-/* Highlight Styles */
-.autoComplete_highlight {
-  color: #4338ca !important;
-}
-
-/* Additional Styles */
-.autocomplete_capacity {
-  display: flex;
-  align-items: center;
-  font-size: 13px;
-  font-weight: 100;
-  text-transform: uppercase;
-  color: #6366f1;
-}
-
-.autocomplete-year {
-  font-size: 13px;
-  font-weight: 100;
-  text-transform: uppercase;
-  color: #4b5563;
+li {
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
 }
