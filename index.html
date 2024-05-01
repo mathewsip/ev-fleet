@@ -10,47 +10,44 @@
   <style>
     /* Your custom CSS styles go here */
     body {
-      background-color: #f0f0f0; /* Light gray */
-      color: #333; /* Dark gray */
+      background-color: #1f1f1f; /* Very dark gray */
+      color: #ccc; /* Light gray */
     }
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
     }
     .chat-container {
-      border: 1px solid #ccc; /* Light gray */
+      border: 1px solid #333; /* Dark gray */
       border-radius: 5px;
       padding: 10px;
-      margin-bottom: auto; /* Push to the top */
-      background-color: #fff; /* White */
+      margin-bottom: 20px;
+      background-color: #292929; /* Dark gray */
     }
     .message {
       margin-bottom: 10px;
-      color: #333; /* Dark gray */
+      color: #ccc; /* Light gray */
     }
     /* Left Side Menu */
     .left-menu {
-      background-color: #e9ecef; /* Slightly different color */
-      color: #333; /* Dark gray */
-      border-right: 1px solid #ccc; /* Light gray */
+      background-color: #333; /* Dark gray */
+      color: #ccc; /* Light gray */
+      border-right: 1px solid #555; /* Medium gray */
       padding: 20px;
-      height: 100%;
-      overflow-y: auto; /* Add scroll for menu */
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      overflow-y: auto;
     }
     .left-menu a {
-      color: #333; /* Dark gray */
+      color: #ccc; /* Light gray */
       text-decoration: none;
     }
     .left-menu a:hover {
-      color: #000; /* Black */
-    }
-    /* Chat Input */
-    .chat-input {
-      margin-top: 20px; /* Adjust spacing */
+      color: #fff; /* White */
     }
     /* Add more custom styles as needed */
   </style>
@@ -60,11 +57,11 @@
 <!-- Left Side Menu -->
 <nav class="left-menu">
   <h2>Menu</h2>
-  <ul style="list-style-type: none;"> <!-- Remove bullet points -->
-    <li><a href="#" class="btn btn-primary">New Chat</a></li> <!-- Blue button -->
+  <ul>
+    <li><a href="#">New Chat</a></li>
     <li>
       Chats
-      <ul style="list-style-type: none;"> <!-- Remove bullet points -->
+      <ul>
         <li><a href="#">Chat 1</a></li>
         <li><a href="#">Chat 2</a></li>
         <li><a href="#">Chat 3</a></li>
@@ -72,7 +69,7 @@
     </li>
     <li>
       Databases
-      <ul style="list-style-type: none;"> <!-- Remove bullet points -->
+      <ul>
         <li><a href="#">Fleet 1</a></li>
         <li><a href="#">Fleet 2</a></li>
       </ul>
@@ -81,33 +78,36 @@
 </nav>
 
 <!-- Main Content Area -->
-<div class="container">
+<div class="container" style="margin-left: 200px;"> <!-- Adjust margin-left to match the width of the left menu -->
   <!-- Chat Container -->
   <div class="chat-container">
-    <!-- Chat Messages -->
+    <!-- Sender -->
     <div class="message">
       <strong>You:</strong> Hi there!
     </div>
+    <!-- Receiver -->
     <div class="message">
       <strong>ChatGPT:</strong> Hello! How can I assist you today?
     </div>
+    <!-- Sender -->
     <div class="message">
       <strong>You:</strong> I have a question about AI.
     </div>
+    <!-- Receiver -->
     <div class="message">
       <strong>ChatGPT:</strong> Sure, feel free to ask!
     </div>
     <!-- Add more messages here -->
   </div>
-
-  <!-- Chat Input -->
-  <div class="chat-input">
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Type your message here...">
-      <button class="btn btn-primary" type="button">Send</button>
-    </div>
-  </div>
 </div>
+
+<!-- Chat Input -->
+<footer class="container fixed-bottom">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Type your message here...">
+    <button class="btn btn-primary" type="button">Send</button>
+  </div>
+</footer>
 
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
