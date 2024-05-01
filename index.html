@@ -17,12 +17,15 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
     }
     .chat-container {
       border: 1px solid #ccc; /* Light gray */
       border-radius: 5px;
       padding: 10px;
-      margin-bottom: 20px;
+      margin-bottom: auto; /* Push to the top */
       background-color: #fff; /* White */
     }
     .message {
@@ -35,7 +38,8 @@
       color: #333; /* Dark gray */
       border-right: 1px solid #ccc; /* Light gray */
       padding: 20px;
-      height: 100vh;
+      height: 100%;
+      overflow-y: auto; /* Add scroll for menu */
     }
     .left-menu a {
       color: #333; /* Dark gray */
