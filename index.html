@@ -10,8 +10,8 @@
   <style>
     /* Your custom CSS styles go here */
     body {
-      background-color: #f8f9fa;
-      color: #333;
+      background-color: #1f1f1f; /* Very dark gray */
+      color: #ccc; /* Light gray */
     }
     .container {
       max-width: 1200px;
@@ -19,24 +19,58 @@
       padding: 20px;
     }
     .chat-container {
-      border: 1px solid #ccc;
+      border: 1px solid #333; /* Dark gray */
       border-radius: 5px;
       padding: 10px;
       margin-bottom: 20px;
-      background-color: #fff;
+      background-color: #292929; /* Dark gray */
     }
     .message {
       margin-bottom: 10px;
+      color: #ccc; /* Light gray */
+    }
+    /* Left Side Menu */
+    .left-menu {
+      background-color: #333; /* Dark gray */
+      color: #ccc; /* Light gray */
+      border-right: 1px solid #555; /* Medium gray */
+      padding: 20px;
+      height: 100vh;
+    }
+    .left-menu a {
+      color: #ccc; /* Light gray */
+      text-decoration: none;
+    }
+    .left-menu a:hover {
+      color: #fff; /* White */
     }
     /* Add more custom styles as needed */
   </style>
 </head>
 <body>
 
-<!-- Header -->
-<header class="container">
-  <h1>Chat Application</h1>
-</header>
+<!-- Left Side Menu -->
+<nav class="left-menu">
+  <h2>Menu</h2>
+  <ul>
+    <li><a href="#">New Chat</a></li>
+    <li>
+      Chats
+      <ul>
+        <li><a href="#">Chat 1</a></li>
+        <li><a href="#">Chat 2</a></li>
+        <li><a href="#">Chat 3</a></li>
+      </ul>
+    </li>
+    <li>
+      Databases
+      <ul>
+        <li><a href="#">Fleet 1</a></li>
+        <li><a href="#">Fleet 2</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 <!-- Main Content Area -->
 <div class="container">
@@ -60,13 +94,15 @@
     </div>
     <!-- Add more messages here -->
   </div>
+</div>
 
-  <!-- Chat Input -->
+<!-- Chat Input -->
+<footer class="container">
   <div class="input-group mb-3">
     <input type="text" class="form-control" placeholder="Type your message here...">
     <button class="btn btn-primary" type="button">Send</button>
   </div>
-</div>
+</footer>
 
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
