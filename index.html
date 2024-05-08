@@ -1,19 +1,49 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot UI</title>
+    <title>Sensai Chatbot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="chat-container">
-        <header class="chat-header">Sensai Chatbot</header>
-        <div class="chat-box" id="chat-box"></div>
-        <div class="input-area">
-            <input type="text" id="user-input" placeholder="Type a message..." class="user-input">
-            <button onclick="sendMessage()" class="send-button">Send</button>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar for chat history and databases -->
+            <div class="col-md-4 col-lg-3 bg-light">
+                <div class="sidebar-section">
+                    <h4 class="sidebar-title">Chats</h4>
+                    <div id="chat-history" class="list-group">
+                        <!-- Chat history will populate here -->
+                    </div>
+                    <button class="btn btn-primary w-100 mt-3" onclick="startNewChat()">Start New Chat</button>
+                </div>
+                <div class="sidebar-section">
+                    <h4 class="sidebar-title">Databases</h4>
+                    <div class="list-group">
+                        <!-- Example databases -->
+                        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
+                            <img src="database-icon.png" alt="DB" class="icon-sm">
+                            Battery Stats
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
+                            <img src="database-icon.png" alt="DB" class="icon-sm">
+                            Vehicle Data
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Chat area -->
+            <div class="col-md-8 col-lg-9">
+                <div class="chat-container">
+                    <div class="chat-box" id="chat-box"></div>
+                    <div class="input-area d-flex">
+                        <input type="text" id="user-input" placeholder="Type a message..." class="form-control">
+                        <button onclick="sendMessage()" class="btn btn-success ms-2">Send</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
