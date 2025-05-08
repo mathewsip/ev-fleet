@@ -1,34 +1,87 @@
-/* styles.css */
-body, html {
-    height: 100%;
+
+/* styles.css — Stripe-like clean design */
+
+body {
     margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f6f9fc;
+    color: #32325d;
 }
-.container-fluid, .row, .col-md-4, .col-md-8 {
-    height: 100%;
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 2rem;
 }
-.sidebar-section {
-    padding: 20px;
+
+.container-fluid {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
 }
-.sidebar-title {
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ccc;
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(50, 50, 93, 0.1), 0 1px 1px rgba(0, 0, 0, 0.07);
 }
-.chat-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+
+thead {
+    background-color: #f6f9fc;
+    font-weight: 600;
+    color: #525f7f;
 }
-.chat-box {
-    flex-grow: 1;
-    overflow-y: auto;
-    background-color: #f7f7f7;
-    padding: 20px;
+
+th, td {
+    text-align: left;
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid #e6ebf1;
 }
-.input-area {
-    padding: 10px;
-    background-color: white;
+
+tr:last-child td {
+    border-bottom: none;
 }
-.icon-sm {
-    width: 20px;
-    margin-right: 10px;
+
+tr:hover {
+    background-color: #f0f4f8;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    thead {
+        display: none;
+    }
+    tr {
+        margin-bottom: 1rem;
+        background: white;
+        border-radius: 6px;
+        box-shadow: 0 1px 3px rgba(50, 50, 93, 0.1);
+    }
+    td {
+        border: none;
+        padding: 1rem;
+        text-align: right;
+        position: relative;
+    }
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        width: 50%;
+        font-weight: bold;
+        text-align: left;
+        color: #6b7c93;
+    }
 }
