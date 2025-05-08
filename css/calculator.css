@@ -1,0 +1,406 @@
+/* Calculator Page Styles */
+
+/* Breadcrumb */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.separator {
+    margin: 0 var(--spacing-sm);
+    color: var(--border-color);
+}
+
+.breadcrumb-region {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* Page Header */
+.page-header-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.region-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background-color: #f6f9fc;
+    border-radius: 50%;
+    margin-right: var(--spacing-md);
+    font-size: 2rem;
+}
+
+.region-description {
+    max-width: 700px;
+    color: var(--text-secondary);
+    margin-top: var(--spacing-xs);
+}
+
+/* Calculator Container */
+.calculator-container {
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Price Display */
+.price-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-md) 0;
+}
+
+.price-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.price-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.card-description {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Parameter Groups */
+.parameter-group {
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.parameter-group:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.parameter-group label {
+    display: block;
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.parameter-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: var(--spacing-sm);
+}
+
+.parameter-value {
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: var(--text-color);
+    min-width: 60px;
+}
+
+/* SoH Chart */
+.soh-chart-container {
+    height: 180px;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Slider */
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: #e3e8ee;
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-fast);
+}
+
+.slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-fast);
+}
+
+.slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+.slider::-moz-range-thumb:hover {
+    transform: scale(1.1);
+}
+
+/* Chemistry Options */
+.chemistry-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-sm);
+}
+
+.chemistry-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.chemistry-option:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.chemistry-option.active {
+    border-color: var(--primary-color);
+    background-color: rgba(99, 91, 255, 0.05);
+}
+
+.chemistry-icon {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.chemistry-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* Use Case Options */
+.use-case-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.use-case-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg) var(--spacing-md);
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.use-case-option:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.use-case-option.active {
+    border-color: var(--primary-color);
+    background-color: rgba(99, 91, 255, 0.05);
+}
+
+.use-case-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.use-case-label {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* Result Card */
+.result-card {
+    background: linear-gradient(135deg, #fafaff 0%, #f6f9fc 100%);
+}
+
+.result-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-lg) 0;
+}
+
+.main-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 var(--spacing-lg);
+}
+
+.result-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.result-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.result-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    padding: 0 var(--spacing-lg);
+    border-left: 1px solid var(--border-color);
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 100px;
+}
+
+.detail-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.detail-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.detail-unit {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.calculation-formula {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+    font-size: 0.875rem;
+}
+
+.formula-title {
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+}
+
+.formula-text {
+    color: var(--text-secondary);
+}
+
+/* Chart Containers */
+.chart-container {
+    height: 300px;
+    padding: var(--spacing-md);
+}
+
+/* Chemistry Details */
+.chemistry-details {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+.chemistry-info h3 {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.chemistry-properties {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+}
+
+.property-item {
+    min-width: 100px;
+}
+
+.property-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.property-value {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .result-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .main-result {
+        margin-bottom: var(--spacing-lg);
+        padding: 0;
+    }
+    
+    .result-details {
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+        padding-top: var(--spacing-lg);
+        justify-content: center;
+    }
+    
+    .chart-container {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .chemistry-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .use-case-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .chemistry-properties {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+}

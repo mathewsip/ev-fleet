@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLBVI - Battery Value Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/calculator.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 0C8.954 0 0 8.954 0 20C0 31.046 8.954 40 20 40C31.046 40 40 31.046 40 20C40 8.954 31.046 0 20 0ZM20 30C14.477 30 10 25.523 10 20C10 14.477 14.477 10 20 10C25.523 10 30 14.477 30 20C30 25.523 25.523 30 20 30Z" fill="#635BFF"/>
+                            <path d="M22 15H18V25H22V15Z" fill="#635BFF"/>
+                            <path d="M25 18H15V22H25V18Z" fill="#635BFF"/>
+                        </svg>
+                        <span>SLBVI</span>
+                    </div>
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="home.html">Dashboard</a></li>
+                            <li><a href="#" class="active">Calculator</a></li>
+                            <li><a href="#">Analytics</a></li>
+                            <li><a href="#">Documentation</a></li>
+                        </ul>
+                    </nav>
+                    <div class="user-menu">
+                        <div class="user-info">
+                            <span class="user-name">User</span>
+                            <img src="" alt="User Avatar" class="user-avatar">
+                        </div>
+                        <div class="dropdown-menu">
+                            <ul>
+                                <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+                                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                                <li><a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="app-main">
+            <div class="container">
+                <!-- Breadcrumb -->
+                <div class="breadcrumb">
+                    <a href="home.html">Dashboard</a>
+                    <span class="separator">/</span>
+                    <span class="breadcrumb-region">Region</span>
+                    <span class="separator">/</span>
+                    <span>Calculator</span>
+                </div>
+                
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="page-header-content">
+                        <div class="region-badge">
+                            <span class="region-icon"></span>
+                        </div>
+                        <div>
+                            <h1><span class="region-name"></span> Battery Value Calculator</h1>
+                            <p class="region-description"></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Calculator Section -->
+                <div class="calculator-container">
+                    <div class="row">
+                        <!-- Parameters Column -->
+                        <div class="col col-lg-4">
+                            <!-- Base Price Card -->
+                            <div class="card mb-md">
+                                <div class="card-header">
+                                    <h2 class="card-title">Base Price</h2>
+                                </div>
+                                <div class="price-display">
+                                    <div class="price-value" id="base-price">$85.00</div>
+                                    <div class="price-label">USD/kWh/year</div>
+                                </div>
+                                <p class="card-description">Regional base price for new battery systems</p>
+                            </div>
+                            
+                            <!-- Parameters Card -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2 class="card-title">Battery Parameters</h2>
+                                    <p class="card-subtitle">Adjust values to calculate second-life value</p>
+                                </div>
+                                
+                                <!-- SoH Chart -->
+                                <div class="parameter-group">
+                                    <label>State of Health (SoH)</label>
+                                    <div class="soh-chart-container">
+                                        <canvas id="sohChart"></canvas>
+                                    </div>
+                                    <div class="parameter-row">
+                                        <span class="parameter-value" id="soh-value">80%</span>
+                                        <input type="range" id="soh-slider" min="50" max="95" value="80" class="slider">
+                                    </div>
+                                </div>
+                                
+                                <!-- Chemistry Selector -->
+                                <div class="parameter-group">
+                                    <label>Battery Chemistry</label>
+                                    <div class="chemistry-options">
+                                        <button class="chemistry-option active" data-chemistry="NMC">
+                                            <div class="chemistry-icon">NMC</div>
+                                            <div class="chemistry-label">NMC</div>
+                                        </button>
+                                        <button class="chemistry-option" data-chemistry="LFP">
+                                            <div class="chemistry-icon">LFP</div>
+                                            <div class="chemistry-label">LFP</div>
+                                        </button>
+                                        <button class="chemistry-option" data-chemistry="NCA">
+                                            <div class="chemistry-icon">NCA</div>
+                                            <div class="chemistry-label">NCA</div>
+                                        </button>
+                                        <button class="chemistry-option" data-chemistry="LMO">
+                                            <div class="chemistry-icon">LMO</div>
+                                            <div class="chemistry-label">LMO</div>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Use Case Selector -->
+                                <div class="parameter-group">
+                                    <label>Application Use Case</label>
+                                    <div class="use-case-options">
+                                        <button class="use-case-option active" data-usecase="grid">
+                                            <div class="use-case-icon"><i class="fas fa-bolt"></i></div>
+                                            <div class="use-case-label">Grid Services</div>
+                                        </button>
+                                        <button class="use-case-option" data-usecase="commercial">
+                                            <div class="use-case-icon"><i class="fas fa-building"></i></div>
+                                            <div class="use-case-label">Commercial & Industrial</div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Results Column -->
+                        <div class="col col-lg-8">
+                            <!-- Main Results Card -->
+                            <div class="card mb-md result-card">
+                                <div class="card-header">
+                                    <h2 class="card-title">Second-Life Battery Value Index</h2>
+                                </div>
+                                <div class="result-content">
+                                    <div class="main-result">
+                                        <div class="result-value" id="slbvi-value">$54.40</div>
+                                        <div class="result-label">USD/kWh/year</div>
+                                    </div>
+                                    <div class="result-details">
+                                        <div class="detail-item">
+                                            <div class="detail-label">Degradation Rate</div>
+                                            <div class="detail-value" id="degradation-rate">2.0%</div>
+                                            <div class="detail-unit">per year</div>
+                                        </div>
+                                        <div class="detail-item">
+                                            <div class="detail-label">Remaining Life</div>
+                                            <div class="detail-value" id="remaining-years">8</div>
+                                            <div class="detail-unit">years</div>
+                                        </div>
+                                        <div class="detail-item">
+                                            <div class="detail-label">SoH Factor</div>
+                                            <div class="detail-value" id="soh-factor">0.8</div>
+                                            <div class="detail-unit"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="calculation-formula">
+                                    <div class="formula-title">Calculation Formula:</div>
+                                    <div class="formula-text">SLBVI = Base Price × SoH Factor × Chemistry Factor × Use Case Factor × Remaining Life Factor</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Value Projection Chart -->
+                            <div class="card mb-md">
+                                <div class="card-header">
+                                    <h2 class="card-title">Value Projection Over Time</h2>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="projectionChart"></canvas>
+                                </div>
+                            </div>
+                            
+                            <!-- Chemistry Comparison Chart -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2 class="card-title">Chemistry Comparison</h2>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="chemistryChart"></canvas>
+                                </div>
+                                <div class="chemistry-details">
+                                    <div class="chemistry-info">
+                                        <h3 id="selected-chemistry-name">NMC (Nickel Manganese Cobalt)</h3>
+                                        <div class="chemistry-properties">
+                                            <div class="property-item">
+                                                <div class="property-label">Cycle Life</div>
+                                                <div class="property-value" id="chemistry-cycle-life">Medium-High</div>
+                                            </div>
+                                            <div class="property-item">
+                                                <div class="property-label">Thermal Stability</div>
+                                                <div class="property-value" id="chemistry-thermal">Medium</div>
+                                            </div>
+                                            <div class="property-item">
+                                                <div class="property-label">Cost Factor</div>
+                                                <div class="property-value" id="chemistry-cost">Medium</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p>&copy; 2025 SLBVI - Second-Life Battery Value Index. Demo Version.</p>
+                    <nav class="footer-nav">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Support</a>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/regions.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

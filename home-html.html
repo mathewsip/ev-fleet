@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLBVI - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 0C8.954 0 0 8.954 0 20C0 31.046 8.954 40 20 40C31.046 40 40 31.046 40 20C40 8.954 31.046 0 20 0ZM20 30C14.477 30 10 25.523 10 20C10 14.477 14.477 10 20 10C25.523 10 30 14.477 30 20C30 25.523 25.523 30 20 30Z" fill="#635BFF"/>
+                            <path d="M22 15H18V25H22V15Z" fill="#635BFF"/>
+                            <path d="M25 18H15V22H25V18Z" fill="#635BFF"/>
+                        </svg>
+                        <span>SLBVI</span>
+                    </div>
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="#" class="active">Dashboard</a></li>
+                            <li><a href="#">Calculator</a></li>
+                            <li><a href="#">Analytics</a></li>
+                            <li><a href="#">Documentation</a></li>
+                        </ul>
+                    </nav>
+                    <div class="user-menu">
+                        <div class="user-info">
+                            <span class="user-name">User</span>
+                            <img src="" alt="User Avatar" class="user-avatar">
+                        </div>
+                        <div class="dropdown-menu">
+                            <ul>
+                                <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+                                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                                <li><a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="app-main">
+            <div class="container">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <h1>Second-Life Battery Value Index</h1>
+                    <p>Select a region to view detailed pricing and value calculations for second-life batteries.</p>
+                </div>
+                
+                <!-- Dashboard Overview Cards -->
+                <div class="dashboard-cards">
+                    <div class="row">
+                        <div class="col col-lg-3 col-md-6">
+                            <div class="card stat-card">
+                                <div class="stat-icon"><i class="fas fa-battery-three-quarters"></i></div>
+                                <div class="stat-content">
+                                    <div class="stat-value">78.2%</div>
+                                    <div class="stat-label">Avg. Battery SoH</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-lg-3 col-md-6">
+                            <div class="card stat-card">
+                                <div class="stat-icon"><i class="fas fa-dollar-sign"></i></div>
+                                <div class="stat-content">
+                                    <div class="stat-value">$63.40</div>
+                                    <div class="stat-label">Avg. USD/kWh Value</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-lg-3 col-md-6">
+                            <div class="card stat-card">
+                                <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+                                <div class="stat-content">
+                                    <div class="stat-value">7.4</div>
+                                    <div class="stat-label">Avg. Remaining Years</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-lg-3 col-md-6">
+                            <div class="card stat-card">
+                                <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                                <div class="stat-content">
+                                    <div class="stat-value">2.1%</div>
+                                    <div class="stat-label">Avg. Degradation Rate</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Regional Pricing Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Regional Battery Value Index</h2>
+                        <p class="card-subtitle">Click on a region to view detailed calculations</p>
+                    </div>
+                    <table id="regions-table">
+                        <thead>
+                            <tr>
+                                <th>Region</th>
+                                <th>Base Price (USD/kWh/year)</th>
+                                <th>Grid Services Value</th>
+                                <th>C&I Value</th>
+                                <th>Battery Inventory</th>
+                                <th>Updated</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-region="north-america">
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="region-icon">🇺🇸</span>
+                                        <span class="region-name">North America</span>
+                                    </div>
+                                </td>
+                                <td>$85.00</td>
+                                <td>$73.10</td>
+                                <td>$68.00</td>
+                                <td>17,850 MWh</td>
+                                <td>Today</td>
+                                <td><a href="calculator.html?region=north-america" class="btn-icon"><i class="fas fa-chevron-right"></i></a></td>
+                            </tr>
+                            <tr data-region="europe">
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="region-icon">🇪🇺</span>
+                                        <span class="region-name">Europe</span>
+                                    </div>
+                                </td>
+                                <td>$62.00</td>
+                                <td>$53.32</td>
+                                <td>$49.60</td>
+                                <td>22,430 MWh</td>
+                                <td>Today</td>
+                                <td><a href="calculator.html?region=europe" class="btn-icon"><i class="fas fa-chevron-right"></i></a></td>
+                            </tr>
+                            <tr data-region="asia-pacific">
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="region-icon">🌏</span>
+                                        <span class="region-name">Asia Pacific</span>
+                                    </div>
+                                </td>
+                                <td>$50.00</td>
+                                <td>$43.00</td>
+                                <td>$40.00</td>
+                                <td>30,760 MWh</td>
+                                <td>Yesterday</td>
+                                <td><a href="calculator.html?region=asia-pacific" class="btn-icon"><i class="fas fa-chevron-right"></i></a></td>
+                            </tr>
+                            <tr data-region="middle-east">
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="region-icon">🇦🇪</span>
+                                        <span class="region-name">Middle East</span>
+                                    </div>
+                                </td>
+                                <td>$70.00</td>
+                                <td>$60.20</td>
+                                <td>$56.00</td>
+                                <td>5,420 MWh</td>
+                                <td>2 days ago</td>
+                                <td><a href="calculator.html?region=middle-east" class="btn-icon"><i class="fas fa-chevron-right"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Recent Updates Section -->
+                <div class="row mt-lg">
+                    <div class="col col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">Market Trends</h2>
+                            </div>
+                            <div class="trends-chart">
+                                <div class="placeholder-chart">
+                                    <div class="chart-line"></div>
+                                    <div class="chart-line"></div>
+                                    <div class="chart-line"></div>
+                                </div>
+                                <p class="text-center text-secondary mt-md">Historical SLBVI values over time</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">Recent Updates</h2>
+                            </div>
+                            <ul class="updates-list">
+                                <li>
+                                    <div class="update-icon"><i class="fas fa-newspaper"></i></div>
+                                    <div class="update-content">
+                                        <h3>New EU Battery Directive Published</h3>
+                                        <p>The latest directive impacts second-life battery valuations in European markets.</p>
+                                        <span class="update-time">2 hours ago</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="update-icon"><i class="fas fa-chart-bar"></i></div>
+                                    <div class="update-content">
+                                        <h3>Asia Pacific Values Updated</h3>
+                                        <p>Revised calculations based on latest grid service compensation rates.</p>
+                                        <span class="update-time">Yesterday</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="update-icon"><i class="fas fa-sync-alt"></i></div>
+                                    <div class="update-content">
+                                        <h3>Degradation Models Improved</h3>
+                                        <p>Enhanced accuracy for NMC and LFP chemistries based on new field data.</p>
+                                        <span class="update-time">2 days ago</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p>&copy; 2025 SLBVI - Second-Life Battery Value Index. Demo Version.</p>
+                    <nav class="footer-nav">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Support</a>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/regions.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
